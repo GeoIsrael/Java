@@ -62,7 +62,8 @@ public class MainClassProduct {
 
 	private static void printDrink(Product[] myProduct) {
 		for (int i = 0; i < myProduct.length; i ++) {
-           if (myProduct[i].ClassType() == "Drink") System.out.println(myProduct[i]);;
+//           if (myProduct[i].ClassType() == "Drink") System.out.println(myProduct[i]);;
+             if (myProduct[i].getClass().getName() == "Drink") System.out.println(myProduct[i]);
 		}		
 	}
 
