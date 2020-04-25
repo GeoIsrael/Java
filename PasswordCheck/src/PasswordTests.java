@@ -16,7 +16,7 @@ public class PasswordTests {
 		assertTrue(Password.passwordCheck("Abc&1234"));
 		assertTrue(Password.passwordCheck("12345678Aa*"));
 		assertTrue(Password.passwordCheck("****%!Lm12"));
-		assertTrue(Password.passwordCheck("javA67&*@"));
+		assertTrue(Password.passwordCheck("javA67&*@")); 
 	}
 	@Test
 	public void wrongLength() {

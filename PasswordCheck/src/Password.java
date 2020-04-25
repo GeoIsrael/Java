@@ -12,34 +12,36 @@ public class Password {
 	public static boolean passwordCheck(String password){
 		
 		System.out.println(password);
-		boolean length_pass = wrongLength(password); //check password length
-		boolean wrong_up_case = wrongUppercase(password); //check UpperCase
-		boolean wrong_low_case = wrongLowercase(password); //check LowerCase
-		boolean wrong_dig = wrongDigit(password); //check Digit
-		boolean wrong_spec = wrongSpecSymbol(password); //Check SpecSymbol
+		boolean length_pass = wrongLength(password); 
+		boolean wrong_up_case = wrongUppercase(password); 
+		boolean wrong_low_case = wrongLowercase(password); 
+		boolean wrong_dig = wrongDigit(password); 
+		boolean wrong_spec = wrongSpecSymbol(password); 
+
+		if(length_pass && wrong_up_case && wrong_low_case && wrong_dig && wrong_spec) return true;
 		
-		System.out.println(length_pass + "\t" + wrong_up_case + "\t"+ wrong_low_case + 
-				"\t" + wrong_dig + "\t" + wrong_spec);
-		
-		return true;
+		return false;
 		
 	}
 
-	private static boolean wrongSpecSymbol(String password) {
-		char[] array=password.toCharArray();
-		for(char x: array) {
-			if (Character.isLetter(x) || Character.isDigit(x)) continue;
-            return true;		
-		}
-		return false;
+	private static boolean wrongSpecSymbol(String password) {  
+
+	       boolean isSpec = false;     
+	       char[] my_chars = password.toCharArray();
+	            for (int i = 0; i < my_chars.length; i++) {
+	                if (my_chars[i] == '*' || my_chars[i] == '&' || my_chars[i] == '%' || my_chars[i] == '!'
+	                		|| my_chars[i] == '@') isSpec = true;
+	                
+	            }
+	            return isSpec;
+
 		
 	}
 
 	private static boolean wrongDigit(String password) {
 		char[] array=password.toCharArray();
 		for(char x: array) {
-			if (Character.isDigit(x)) return true;
-            continue;		
+			if (Character.isDigit(x)) return true;		
 		}
 		return false;
 		
@@ -48,8 +50,7 @@ public class Password {
 	private static boolean wrongLowercase(String password) {
 		char[] array=password.toCharArray();
 		for(char x: array) {
-			if (Character.isLowerCase(x)) return true;
-            continue;		
+			if (Character.isLowerCase(x)) return true;	
 		}
 		return false;
 		
@@ -58,8 +59,7 @@ public class Password {
 	private static boolean wrongUppercase(String password) {
 		char[] array=password.toCharArray();
 		for(char x: array) {
-			if (Character.isUpperCase(x)) return true;
-            continue;		
+			if (Character.isUpperCase(x)) return true;	
 		}
 		return false;
 		
