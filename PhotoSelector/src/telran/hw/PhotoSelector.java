@@ -8,18 +8,22 @@ public class PhotoSelector {
 			
 //what is the length of the future array?
 		Pattern pattern = Pattern.compile(regex);
+
 		int count = 0;
 		for (int i = 0; i < pictures.length; i++) {
 		Matcher matcher = pattern.matcher(pictures[i]);
-		if (matcher.find()) count+=1;
+		matcher.reset();
+		if (matcher.find()) count+=1; 
+		
 		}
-	
+	    
     	String[] ActString = new String[count];
 		
 //fill the array	
+    	int index = 0;
 		for (int i = 0; i < pictures.length; i++) {
-			Matcher matcher = pattern.matcher(pictures[i]);
-			if (matcher.find()) ActString[i] = pictures[i];
+			Matcher matcher = pattern.matcher(pictures[i]); 
+			if (matcher.find()) {ActString[index] = pictures[i]; index++;}
 		}
 			
 		return ActString;
