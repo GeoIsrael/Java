@@ -4,28 +4,25 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PhotoSelector {
+	
+	private static final String DELIMITER = ";";
+	
 	public static String[] selectPictures(String[] pictures, String regex) {
-			
-//what is the length of the future array?
+		
+		if (pictures.length == 0) return null;
+		
+		String res = new String();
 		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher("");
 
-		int count = 0;
 		for (int i = 0; i < pictures.length; i++) {
-		Matcher matcher = pattern.matcher(pictures[i]);
-		matcher.reset();
-		if (matcher.find()) count+=1; 
+			matcher.reset(pictures[i]);
+		    if (matcher.find()) res += (pictures[i] + DELIMITER); 
+		    }
 		
-		}
-	    
-    	String[] ActString = new String[count];
+		return res.split(";");		
 		
-//fill the array	
-    	int index = 0;
-		for (int i = 0; i < pictures.length; i++) {
-			Matcher matcher = pattern.matcher(pictures[i]); 
-			if (matcher.find()) {ActString[index] = pictures[i]; index++;}
-		}
-			
-		return ActString;
 	}
+	
 }
+		

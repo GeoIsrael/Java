@@ -39,7 +39,8 @@ public class PhotoSelectorTests {
 				"Chicago\\20151111_232000.png"
 		};
 
-		String regex="\\.png|\\.jpg";  myTest(regex,expecteds);
+		String regex="\\.png|\\.jpg";               //             "\\.(png|jpg"     //   "\\.(pn|jp)g"
+		     myTest(regex,expecteds);
 		
 		
 	}
@@ -78,7 +79,8 @@ public class PhotoSelectorTests {
 				
 		};
 
-		String regex="\\_[1][89]|\\_[2][0-4]"; myTest(regex,expecteds);
+		String regex="_(1[89]|2[0-3])"; 
+		myTest(regex,expecteds);
 		
 
 	}
