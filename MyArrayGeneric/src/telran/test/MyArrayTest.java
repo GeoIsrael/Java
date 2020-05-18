@@ -2,6 +2,8 @@ package telran.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -206,6 +208,16 @@ public class MyArrayTest {
 		for (String res: strings) {
 			assertEquals(arStrings[i++], res);
 		}
+		
+		
+		Iterator<Integer> iter = numbers.iterator();
+		i=0;
+		while (iter.hasNext())
+		{
+			assertEquals(arNumbers[i++], iter.next());
+		}
+		
+		
 	}
 	
 	
