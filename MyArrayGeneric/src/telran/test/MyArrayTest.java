@@ -195,4 +195,18 @@ public class MyArrayTest {
 		//=======================
 		
 	}
+	
+	@Test
+	public void iteratorTest() {
+		int i = 0;
+		for (Integer res:numbers) {
+			assertEquals(arNumbers[i++], res);
+		}
+		i = 0;
+		for (String res: strings) {
+			assertEquals(arStrings[i++], res);
+		}
+	}
+	
+	
 }

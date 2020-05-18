@@ -2,7 +2,7 @@ package telran.interfaces;
 
 import telran.impl.MyArray;
 
-public interface IMyArray<E> {
+public interface IMyArray<E>  extends Iterable<E>{
 	boolean add(E obj);
 	boolean add(int index, E obj);
 	Object get(int index);

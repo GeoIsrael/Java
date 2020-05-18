@@ -1,8 +1,10 @@
 package telran.impl;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 import telran.interfaces.IMyArray;
+import telran.iterators.MyArrayIterator;
 
 
 	public class MyArray<E> implements IMyArray<E>{
@@ -156,6 +158,7 @@ import telran.interfaces.IMyArray;
 			return size!=oldSize;
 		}
 		
+	
 		
 	
 		
@@ -190,6 +193,11 @@ import telran.interfaces.IMyArray;
 			for(int i=0;i<size;i++) array[i]=null;
 			size=0;
 			
+		}
+
+		@Override
+		public Iterator<E> iterator() {
+			return new MyArrayIterator<E>(this);
 		}
 		
 }
