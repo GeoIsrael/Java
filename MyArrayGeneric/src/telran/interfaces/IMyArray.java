@@ -1,5 +1,7 @@
 package telran.interfaces;
 
+import java.util.Comparator;
+
 import telran.impl.MyArray;
 
 public interface IMyArray<E>  extends Iterable<E>{
@@ -18,5 +20,8 @@ public interface IMyArray<E>  extends Iterable<E>{
 	E set(int index, E obj);
 	public void clear();
 	
+	//=====================================
+
+	void sort(Comparator<E> comp);
 	
 }

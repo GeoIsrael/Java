@@ -2,11 +2,15 @@ package telran.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import telran.comparators.OddEvenComparator;
+import telran.comparators.SimpleNumberComparator;
+import telran.comparators.StringLengthsComparator;
 import telran.impl.MyArray;
 import telran.interfaces.IMyArray;
 
@@ -215,10 +219,38 @@ public class MyArrayTest {
 		while (iter.hasNext())
 		{
 			assertEquals(arNumbers[i++], iter.next());
-		}
-		
-		
+		}	
 	}
 	
+	
+//	{"abc","lmn","fg","abc"};
+
+	@Test
+	public void StringsLengthTest() {
+		String[] expected = {"fg","abc","lmn","abc"};
+		StringLengthsComparator comp = new StringLengthsComparator();
+		strings.sort(comp);
+        assertArrayEquals(expected, strings.toArray());
+	}
+	
+
+	
+	@Test
+	public void sortTest() {
+		Integer[] expected = {-2,7,10,10,11,13};
+		SimpleNumberComparator comp = new SimpleNumberComparator();
+		numbers.sort(comp);
+		assertArrayEquals(expected, numbers.toArray());
+	}
+	
+	
+//	10,7,11,-2,13,10
+	@Test
+	public void testOddEvenComparator() {
+		Integer[] expected = {-2,10,10,13,11,7};
+		OddEvenComparator comp = new OddEvenComparator();
+		numbers.sort(comp);
+		assertArrayEquals(expected, numbers.toArray());	
+	}
 	
 }

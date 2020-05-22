@@ -1,6 +1,7 @@
 package telran.impl;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 
 import telran.interfaces.IMyArray;
@@ -199,5 +200,42 @@ import telran.iterators.MyArrayIterator;
 		public Iterator<E> iterator() {
 			return new MyArrayIterator<E>(this);
 		}
+		
+		//=======================================
+		
+		@SuppressWarnings("unchecked")
+		@Override
+		public void sort(Comparator<E> comp) {
+			boolean flSort;
+			int n = size;
+			do {
+				n--;
+				flSort = false;
+				for (int i = 0; i < n; i++) {
+					if(comp.compare((E)array[i], (E)array[i+1]) > 0) {
+						swap(i, i+1);
+						flSort = true;
+					}
+				}
+				
+				
+			}while (flSort);
+			
+		}
+
+		private void swap(int i, int j) {
+			
+			Object temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+		
+		
+		//====================================
+		
+		
+		
+		
+		
 		
 }
