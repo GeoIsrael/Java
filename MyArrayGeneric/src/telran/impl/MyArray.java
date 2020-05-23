@@ -3,6 +3,7 @@ package telran.impl;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 import telran.interfaces.IMyArray;
 import telran.iterators.MyArrayIterator;
@@ -229,10 +230,46 @@ import telran.iterators.MyArrayIterator;
 			array[i] = array[j];
 			array[j] = temp;
 		}
-		
+
 		
 		//====================================
 		
+		@SuppressWarnings("unchecked")
+		@Override
+		public boolean removeIf(Predicate<E> predicate) {
+
+			int count = 0;
+			for (int i = 0; i < size; i++) {
+				if (predicate.test((E) array[i])) {
+					remove(array[i]);
+					count++;
+				}	
+			}
+			if (count > 0) return true;
+			return false;
+		}
+		
+//		private static int count(int[] ar, Predicate<Integer> predicate)   {   		
+//
+//			int count = 0;
+//			for (int num:ar) {
+//				if (predicate.test(num)) count++;
+//			}
+//			return count;
+//		}
+//		
+		
+//		private static int[] getNumbers(int[] ar, Predicate<Integer> predicate) {
+//			int count = count(ar, predicate);
+//			int[] res = new int[count];
+//			if (count > 0) {
+//				int iRes = 0;
+//				for (int num : ar) {
+//					if (predicate.test(num)) res[iRes++] = num;		
+//				}
+//			}
+//			return res;
+//		}
 		
 		
 		

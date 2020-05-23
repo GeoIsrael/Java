@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -252,5 +253,26 @@ public class MyArrayTest {
 		numbers.sort(comp);
 		assertArrayEquals(expected, numbers.toArray());	
 	}
+	
+	
+	//условие для удаления - элемент меньше нуля         исходный массив: 10,7,11,-2,13,10
+	@Test
+	public void testRemoveByPredicate() {
+		Integer[] expected = {10,7,11,13,10};
+		numbers.removeIf(new Predicate<Integer>() {
+			
+			@Override
+			public boolean test(Integer t) {
+				return t<0;
+			}
+		});
+		
+		assertArrayEquals(expected, numbers.toArray());
+		
+		
+		
+	} 
+	
+	
 	
 }

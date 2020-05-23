@@ -1,6 +1,7 @@
 package telran.interfaces;
 
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 import telran.impl.MyArray;
 
@@ -23,5 +24,6 @@ public interface IMyArray<E>  extends Iterable<E>{
 	//=====================================
 
 	void sort(Comparator<E> comp);
+	boolean removeIf(Predicate<E> predicate);
 	
 }
