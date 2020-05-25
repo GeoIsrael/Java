@@ -20,13 +20,18 @@ public class PredicateTestAppl {
 		
 		
 	//3 HW ==========================================================================================
-		int[] threeNumbers = getNumbers(ar, new Predicate<Integer>() {
+		Predicate<Integer> predicate = new Predicate<Integer>() {
 
 			@Override
 			public boolean test(Integer t) {
 				return t%3 == 0;
 			}
-		});
+		};
+		
+		
+		int[] threeNumbers = getNumbers(ar, predicate);
+		
+		
 		
 		
 		
