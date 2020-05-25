@@ -230,49 +230,58 @@ import telran.iterators.MyArrayIterator;
 			array[i] = array[j];
 			array[j] = temp;
 		}
+//CW2
 
-		
-		//====================================
-		
 		@SuppressWarnings("unchecked")
-		@Override
 		public boolean removeIf(Predicate<E> predicate) {
-
-			int count = 0;
+            Object[] tmp = new Object[array.length];
+            int indTmp = 0;
 			for (int i = 0; i < size; i++) {
-				if (predicate.test((E) array[i])) {
-					remove(array[i]);
-					count++;
+				if (!predicate.test((E) array[i])) {
+					tmp[indTmp++] = array[i];
 				}	
 			}
-			if (count > 0) return true;
-			return false;
-		}
-		
-//		private static int count(int[] ar, Predicate<Integer> predicate)   {   		
+			array = tmp;
+			boolean res = indTmp!=size;
+			size = indTmp;
+			return res;
+		}		
+	
+//		CW1
+//		public boolean removeIf(Predicate<E> predicate) {
 //
-//			int count = 0;
-//			for (int num:ar) {
-//				if (predicate.test(num)) count++;
+//			int oldSize  = size;
+//			for (int i = 0; i < size; i++) {
+//				if (predicate.test(get(i))) {
+//					remove(i);
+//					i--;
+//				}	
 //			}
-//			return count;
+//			return size!=oldSize;
 //		}
+//	}
 //		
 		
-//		private static int[] getNumbers(int[] ar, Predicate<Integer> predicate) {
-//			int count = count(ar, predicate);
-//			int[] res = new int[count];
-//			if (count > 0) {
-//				int iRes = 0;
-//				for (int num : ar) {
-//					if (predicate.test(num)) res[iRes++] = num;		
-//				}
+		
+		
+		//====================================
+//My Version	
+//		@SuppressWarnings("unchecked")
+//		@Override
+//		public boolean removeIf(Predicate<E> predicate) {
+//
+//			int count = 0;
+//			for (int i = 0; i < size; i++) {
+//				if (predicate.test((E) array[i])) {
+//					remove(array[i]);
+//					count++;
+//					i--;
+//				}	
 //			}
-//			return res;
+//			if (count > 0) return true;
+//			return false;
 //		}
-		
-		
-		
-		
+//	}
+//	
 		
 }
