@@ -1,3 +1,9 @@
+//Tesr -> Run Configuration -> Arguments -> VM Arguments  -> -ea -Xms50m -Xmx150m
+//Xms - шаг добавления памяти
+//Xmx - огриничение памяти - максимум
+//размер максимально создаваемого массива меньше размера свободной памяти из за того, 
+//что массива который создавался - его нет.
+
 package telran.memory.tests;
 
 import static org.junit.Assert.*;
