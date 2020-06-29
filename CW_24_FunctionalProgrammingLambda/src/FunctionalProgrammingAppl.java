@@ -16,6 +16,17 @@ public class FunctionalProgrammingAppl {
 		System.out.println(map.get("*").apply(10, 30));
 		
 		
+		//========================================================================
+		//в этой части кода мы пробуем применить forEach с интерфейсом BiConsumer к мапе
+		map.forEach((k,v) -> {
+			if (k.equals("*"))
+				System.out.println("Element was find!");         //распечатали если нашли в Map в ключе звездочку
+		});
+		
+		
+		
+		
+		
 		//===================================Lambda Expression=======================
 		
 		
@@ -38,6 +49,12 @@ public class FunctionalProgrammingAppl {
 		//======================Method Reference====================================
 		list.sort(Integer::compare);        //Integer(к какому классу обращаемся) :: compare у Integer (вместо compare можно передать другие компаработы)   
 		System.out.println(list);
+		
+		
+		list.forEach(System.out::print);    //распечатка reference
+		System.out.println();
+
+		list.forEach(n -> System.out.print(n + " "));   //распечатка листа при помощи Lambda
 		
 	}
 
