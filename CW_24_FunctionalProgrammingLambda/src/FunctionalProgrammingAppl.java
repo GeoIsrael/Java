@@ -56,7 +56,47 @@ public class FunctionalProgrammingAppl {
 
 		list.forEach(n -> System.out.print(n + " "));   //распечатка листа при помощи Lambda
 		
+		System.out.println();
+		//=======================your static metod reference
+		
+		list.sort(FunctionalProgrammingAppl::evenOdd);      //имя класса, у которого статический метод и статический метод
+		System.out.println("sorted list with static metod " + list);
+		
+		System.out.println();
+		
+		//=======================your no static metod reference
+		
+		list.sort(new FunctionalProgrammingAppl()::evenOddNoStatic);  //нужно создать экземпляр класса, чтобы обратиться к его не статическому методу
+		System.out.println("sorted list with no static metod " + list);
+
+		
+		
 	}
+	
+	//your static metod (для теста reference)
+	
+	private static int evenOdd(int a, int b) {
+		if(a%2==0 && b%2!=0) return -1;                
+		if(a%2!=0 && b%2==0) return 1;
+		if(a%2==0 && b%2==0) return a-b;
+		return b-a;
+	}
+	
+	
+	
+	private int evenOddNoStatic(int a, int b) {
+	if(a%2==0 && b%2!=0) return 1;                
+	if(a%2!=0 && b%2==0) return -1;
+	if(a%2==0 && b%2==0) return a-b;
+	return b-a;
+
+	
+	}
+	
+	
+	
+	
+	
 
 	private static List<Integer> find(List<Integer> list, Predicate<Integer> predicate) {     //import predicate from JavaUtilFunction
 		List<Integer> res = new ArrayList<>();    //создаем возвращаемый лист
