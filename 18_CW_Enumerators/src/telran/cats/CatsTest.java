@@ -5,6 +5,7 @@ public class CatsTest {
 	public static void main(String[] args) {
 		
 		Cat current = Cat.MURKA;
+		Cat current2 = Cat.BARSIK;
 		System.out.println(current);
 		
 		displayCat(Cat.FIONA);
