@@ -2,6 +2,7 @@ package telran.numbers;
 import java.util.*;
 import java.util.function.BinaryOperator;
 
+//
 public class Calculator {
 	private static Map<String,BinaryOperator<Integer>> map=new HashMap<>();    //мэпа с байнари оператором
 	static {                     //статик блоки нужны чтобы инициализировать статические переменные   
