@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 
+//
 
 public class FunctionalProgrammingAppl {
 
