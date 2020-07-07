@@ -2,6 +2,7 @@ package telran.range;
 
 import java.util.Iterator;
 
+import telran.iterators.RangeIterator;
 //import telran.iterators.RangeIterator;
 import telran.iterators.RangeReverseIterator;
 
@@ -38,7 +39,7 @@ public class Range implements Iterable<Integer> {
 	@Override
 	public Iterator<Integer> iterator() {
 		
-		return new RangeReverseIterator(this);
+		return new RangeIterator(this);
 	}
 	
 	
