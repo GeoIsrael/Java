@@ -126,7 +126,7 @@ public class RentCompany extends AbstractRentCompany {
 	@Override
 	public CarsReturnCode returnCar(String regNumber, long licenseId, LocalDate returnDate, int gasTankPercent,
 			int damages) {
-		if  (regNumber == null) return CarsReturnCode.CAR_NOT_EXISTS;	               //Gera: returnCar test
+		if  (regNumber == null) return CarsReturnCode.CAR_NOT_EXISTS;	               Gera: returnCar test
 		if  (licenseId == null) return CarsReturnCode.DRIVER_EXISTS;
 		if  (returnDate == null) return CarsReturnCode.RETURN_DATE_WRONG;
 		if  (gasTankPercent == null) return CarsReturnCode.RETURN_DATE_WRONG;
