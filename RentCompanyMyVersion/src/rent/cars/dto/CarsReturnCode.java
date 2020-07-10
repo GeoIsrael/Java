@@ -1,0 +1,8 @@
+package rent.cars.dto;
+
+public enum CarsReturnCode {
+
+	OK, MODEL_EXIST, CAR_NOT_EXIST, CAR_IN_USE, NO_DRIVER,
+	CAR_EXIST, DRIVER_EXIST, CAR_NOT_RENTED, RETURN_DATE_WRONG,
+	NO_MODEL,INPUT_ERROR;
+}

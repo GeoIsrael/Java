@@ -126,17 +126,39 @@ public class RentCompany extends AbstractRentCompany {
 	@Override
 	public CarsReturnCode returnCar(String regNumber, long licenseId, LocalDate returnDate, int gasTankPercent,
 			int damages) {
-		if  (regNumber == null) return CarsReturnCode.CAR_NOT_EXISTS;	               Gera: returnCar test
-		if  (licenseId == null) return CarsReturnCode.DRIVER_EXISTS;
-		if  (returnDate == null) return CarsReturnCode.RETURN_DATE_WRONG;
-		if  (gasTankPercent == null) return CarsReturnCode.RETURN_DATE_WRONG;
-	    if  (damages == null) return CarsReturnCode.CAR_NOT_EXISTS;
-		}
+		CarsReturnCode code = checkReturnCar(regNumber, licenseId);
 		
-		return CarsReturnCode.RETURN_DATE_WRONG
+		return CarsReturnCode.RETURN_DATE_WRONG;
 	}
 
 //==================================================================================
+
+	private CarsReturnCode checkReturnCar(String regNumber, long licenseId) {
+		if(!cars.containsKey(regNumber)) {
+			return CarsReturnCode.CAR_NOT_RENTED;
+		}
+		if (!drivers.containsKey(licenseId)) {
+			return CarsReturnCode.NO_DRIVER;
+		}
+		//FIXME
+//		if (!водитель и машина не соответствуют друг другу) {
+		if (record.getLicenseId() != licenseId || record.getRegNumber().equals(regNumber))
+		return CarsReturnCode.CAR_NOT_RENTED;
+		}
+		
+		Car car = cars.get(regNumber);
+		if (!car.isInUse()) {
+			return CarsReturnCode.CAR_NOT_RENTED;
+		}
+		
+		//FIXME
+		if("Дата возврата раньше даты получения") {
+			return CarsReturnCode.RETURN_DATE_WRONG;
+		}
+		
+		
+		return null;
+	}
 
 	@Override
 	public CarsReturnCode removeCar(String regNumber) {
