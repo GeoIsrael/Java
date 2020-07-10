@@ -6,10 +6,17 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 
 public class PrintCalendsrAppl {
-	private static final int DATE_WIDTH = 4;
+	private static final int DATE_WIDTH = 4;                     
 
 	public static void main(String[] args) {
-		int[] monthYear = args.length == 2 ? getMonthYear(args) : getCurrentMonthYear();
+		int[] monthYear = args.length == 2 ? getMonthYear(args) : getCurrentMonthYear(); 
+		
+//		for (int i : monthYear) {
+//			System.out.println(i);
+//		}
+//		System.out.println(monthYear[1]);     //в массиве два значенияя - 7 и 2020
+		
+		
 		if (monthYear == null) {
 			System.out.println("wrong input - usage: <month number> <year number>");
 			return;
@@ -41,15 +48,15 @@ public class PrintCalendsrAppl {
 	}
 
 	private static void printMonthYear(int month, int year) {
-		printTitle(month, year);
-		printWeekDayNames();
-		printDates(month, year);
+		printTitle(month, year);     //печатает месяц и год
+		printWeekDayNames();        //печатает имена дней недели
+		printDates(month, year);    //печатает даты
 		System.out.println();
 
 	}
 	private static void printTitle(int month, int year) {
 		String monthName = getMonthName(month);
-		System.out.printf("%6s%s %d\n", " ", monthName, year);
+		System.out.printf("%10s%s %d\n", " ", monthName, year);
 
 	}
 	private static String getMonthName(int month) {
