@@ -252,7 +252,7 @@ public class RentCompany extends AbstractRentCompany{
 				.filter(r -> cars.get(r.getRegNumber()).isFlRemoved())
 				.map(r -> r.getRegNumber())
 				.collect(Collectors.toSet());     //собираем множество номеров автомобилей помеченных к удалению из returnRecords
-		
+		 
 		List<Car> res = cars.entrySet().stream()
 				.filter(e -> victims.contains(e.getKey()))
 				.map(e -> e.getValue())
@@ -314,16 +314,23 @@ public class RentCompany extends AbstractRentCompany{
 
 	
 //=========================================================================================	
+	//такие задачи решаются в три этапа обычно
+	//1) делается табличка - группируются данные (типа вхождения)
+	//2) ищется максимум из профитов
+	//3) выбать из моделей всех с профитом, равным максимуму
+	
+	
 	
 	@Override
-	public List<String> getMostPopularModelNames() {
+	public List<String> getMostPopularModelNames() {                 //1
 		Map<String, Long> modelFrequency = getAllRecord()
-				.map(r -> cars.get(r.getRegNumber()).getModelName())
+				.map(r -> cars.get(r.getRegNumber()).getModelName())    
 				.collect(Collectors.groupingBy(n -> n, Collectors.counting()));
 		
-		long max = modelFrequency.values().stream().max(Long::compare).orElse(0l);
+		long max = modelFrequency.values().stream()                  //2
+				.max(Long::compare).orElse(0l);                 
 		
-		return modelFrequency.entrySet().stream()
+		return modelFrequency.entrySet().stream()                    //3      
 				.filter(e -> e.getValue() == max)
 				.map(e -> e.getKey())
 				.collect(Collectors.toList());
@@ -339,16 +346,16 @@ public class RentCompany extends AbstractRentCompany{
 	}
 
 	@Override
-	public List<String> getMostProfitModelNames() {
-		Map<String, Double> modelsProfit = getAllRecord()
+	public List<String> getMostProfitModelNames() {                              //1  получаю все записи и группирую
+		Map<String, Double> modelsProfit = getAllRecord()                        
 				.collect(Collectors.groupingBy(r -> cars.get(r.getRegNumber())
 				.getModelName(), Collectors.summingDouble(r -> r.getCost())));
 		
-		double max = modelsProfit.values().stream()
+		double max = modelsProfit.values().stream()                              //2
 				.max(Double::compare)
 				.orElse(0.0);
 		
-		return modelsProfit.entrySet().stream()
+		return modelsProfit.entrySet().stream()                                  //3
 				.filter(e -> e.getValue() == max)
 				.map(e -> e.getKey())
 				.collect(Collectors.toList());
