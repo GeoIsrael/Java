@@ -21,7 +21,7 @@ public class FooAppl {
 //		Method method2 = foo.getClass.getDeclaredMethod(args[0], String.class);  //второй способ создания 
 //		method.setAccessible(true);     //делаем private метод видимым из вне
 //		method.invoke(foo, args[1]);
-		displayInfo(foo);                         //просмотр методов и контрактов. есть то же самое по полям
+		displayInfo(foo);                         //просмотр методов и контрактов. есть то же самое по полям   h
 		System.out.println();
 
 		System.out.println(Foo.class.getName());
