@@ -13,11 +13,11 @@ public class OptionalAppl {
 		List<Person> persons = Arrays.asList(new Person("Alex", 25),     //создаем List Persons
 				new Person("John", 28), new Person("Maria", 17));        //способ создания листа imutable (не изменяемый) ограниченная длина   
 		int age = 20;                                              //var 
-		Optional<Person> result = findPersonByAge(persons, age);    //метод принимает Liss, возраст и возвращает первого попавшегося person у которого есть этот возраст
+		Optional<Person> result = findPersonByAge(persons, age);    //метод принимает объект, возраст и возвращает первого попавшегося person у которого есть этот возраст
 //		Person person = result.orElse(new Person("Unknown", -1));   //4 вариант использования Optional - возвращает готовый объект
-//		Person person = result.orElseGet(() -> new Person("Unknown", -1));   //5 вариант использования Optional - возвращает объект с какими то выполненными действиями (функцией)		
-		Person person = result.orElseThrow(IllegalArgumentException::new);   //6 вариант использования Optional c созданием Exception
-		System.out.println(person.getName());
+		Person person = result.orElseGet(() -> new Person("Unknown", -1));   //5 вариант использования Optional - возвращает объект с какими то выполненными действиями (функцией)		
+//		Person person = result.orElseThrow(IllegalArgumentException::new);   //6 вариант использования Optional c созданием Exception
+		System.out.println(person.getName()); 
 	}
 
 	//Optional это обертка, внутри которой режит или результат или null
