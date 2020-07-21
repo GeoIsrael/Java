@@ -50,9 +50,13 @@ public class BugImplements implements Runnable  {
 			}	
 		   
 		}
-		if (IppodromeApps.winner == null) {                      //занимаем ячейку победителя своим именем
-			IppodromeApps.winner = name;
+		
+		synchronized(BugImplements.class) {                                //блокировка дступа к этм блоку в других потоках (объектный монитор должен быть общим)
+			if (IppodromeApps.winner == null) {                      //занимаем ячейку победителя своим именем
+				IppodromeApps.winner = name;
+			}
 		}
+		
 		System.out.println(name + " finished, my time is: " + rating);
 		
 
