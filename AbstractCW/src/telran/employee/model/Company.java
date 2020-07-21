@@ -21,11 +21,11 @@ public class Company implements ICompany {
 
 	@Override
 	public boolean addEmployee(Employee employee) {
-		if (size==employees.length||findEmployeeById(employee.getId())!=null) return false;
+		if (size==employees.length||findEmployeeById(employee.getId())!=null) return false;  //
 		
 		employees[size++] = employee;
 		
-		return true;
+		return true; 
 	}
 		
 
