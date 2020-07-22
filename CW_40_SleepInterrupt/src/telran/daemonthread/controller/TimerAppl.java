@@ -10,14 +10,14 @@ import telran.daemonthread.tasks.TimerMySleep;
 public class TimerAppl {
 
 	public static void main(String[] args) throws IOException {
-		Timer timer = new Timer();
+		Timer timer = new Timer();                 
 		Thread thread = new Thread(timer);
 		//thread.setDaemon(true);
 		thread.start();
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));     //создаем ридер из консоли
 		while (true) {
-			System.out.println("Enter time interval or q for exit");
-			String input = br.readLine();
+			System.out.println("Enter time interval or q for exit");        
+			String input = br.readLine();             //читаем ридер
 			if ("q".equalsIgnoreCase(input)) {
 				thread.interrupt();
 				//System.out.println(thread.isInterrupted());
