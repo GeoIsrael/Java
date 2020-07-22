@@ -2,7 +2,7 @@ package telran.reflection.model;
 
 import java.lang.reflect.Method;
 
-public class Foo {                                          //класс ни о чем
+public class Foo {                                          //класс foo
 	public void f1(String str) {                      //public метод f1
 		System.out.println("f1 " + str);
 	}
@@ -16,8 +16,11 @@ public class Foo {                                          //класс ни о
 	}
 
 	public void caller(String function, String arg) {      //public функция принимает два строковых аргумента - название функии и вызывал функцию с аргументом
-//		Class<Foo> clazz = Foo.class;
+
+//		Class<Foo> clazz = Foo.class;				//два способа получения объекта рефлексии
 		Class<?> clazz = this.getClass();         //у объекта получаем объект рефлексии(любого)
+
+		
 		try {
 			Method method = clazz.getDeclaredMethod(function, String.class);    //объект класса Method = дай мне getDeclaredMethod у класса рефлексии
 			method.invoke(this, arg);  //способ вызова метода класса рефлексии методом invoke (вызываем у объекта this с аргументом)
