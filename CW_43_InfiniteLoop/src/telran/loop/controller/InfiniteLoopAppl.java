@@ -1,6 +1,6 @@
 package telran.loop.controller;
 
-import telran.loop.model.InfiniteLoop;
+import telran.loop.model.InfiniteLoop;   //git
 
 public class InfiniteLoopAppl {
 
