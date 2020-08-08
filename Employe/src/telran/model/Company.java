@@ -8,7 +8,7 @@ public class Company {
 	Employee[] employees = new Employee[0];
 	int index = -1;
 	
-	public boolean hire(Employee emp) {
+	public boolean hire(Employee emp) {   //
 		if (getEmployee(emp.getId()) != null) return false;
 		employees = Arrays.copyOf(employees, employees.length + 1);
 		employees[employees.length - 1] = emp;               //индекс последней ячейки
