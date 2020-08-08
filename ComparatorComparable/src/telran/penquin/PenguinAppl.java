@@ -14,7 +14,7 @@ public class PenguinAppl {
 		};
 		
 		printPenguins(penguins);
-		Arrays.sort(penguins, new ComparatorByPrice());
+		Arrays.sort(penguins, new ComparatorByPrice());    //сравнение пингвинов
 		printPenguins(penguins);
 		Arrays.sort(penguins, new ComparatorByName());
 		printPenguins(penguins);
