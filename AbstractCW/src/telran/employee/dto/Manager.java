@@ -44,8 +44,8 @@ public class Manager extends Employee {
 
 	@Override
 	public double calcSalary() {
-		double salary = baseSalary * grade;
-		if (salary < getHours() * StateConstants.MIN_WAGE)
+		double salary = baseSalary * grade; 					//зарплата это базовая зарплата * позицинный уровень
+		if (salary < getHours() * StateConstants.MIN_WAGE)     //вычисляем зарплату
 			salary = getHours() * StateConstants.MIN_WAGE;
 		return salary;
 	}

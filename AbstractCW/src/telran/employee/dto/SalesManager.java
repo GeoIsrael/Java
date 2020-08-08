@@ -43,7 +43,7 @@ public class SalesManager extends Employee {
 	@Override
 	public double calcSalary() {
 
-		double salary = salesValue*percent/100;
+		double salary = salesValue*percent/100;            //зп продажника проценты
 		if (salary < getHours() * StateConstants.MIN_WAGE)       //hours
 			return getHours() * StateConstants.MIN_WAGE;
 		
