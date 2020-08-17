@@ -1,0 +1,29 @@
+{
+	"JavaFan1597566135408": {
+		"id": "JavaFan1597566135408",
+		"title": "Hipe",
+		"content": "Hi!",
+		"author": "JavaFan",
+		"dateCreated": "2020-08-16T11:22:15",
+		"tags": [],
+		"likes": 0,
+		"comments": []
+	},
+	"JavaFan1597566135341": {
+		"id": "JavaFan1597566135341",
+		"title": "Java EE",
+		"content": "Java is the best for backend",
+		"author": "JavaFan",
+		"dateCreated": "2020-08-16T11:22:15",
+		"tags": [],
+		"likes": 1,
+		"comments": [
+			{
+				"user": "Stranger",
+				"message": "Awesome!",
+				"dateCreated": "2020-08-16T11:22:15",
+				"likes": 0
+			}
+		]
+	}
+}
