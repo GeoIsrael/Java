@@ -1,10 +1,26 @@
 package telran.days;
 
+import java.util.Arrays;
+
 public class WeekDayTestAppl {
 
 	public static void main(String[] args) {
 		displayCommentWeekDay(WeekDay.MON);
 
+
+		System.out.println(WeekDay.THU.ordinal());     //индекс в энумераторе
+		WeekDay[] myDays = WeekDay.values();
+		
+		for(WeekDay i: myDays)
+		{
+			System.out.println(i);
+		}
+		
+		System.out.println("---------------------");
+		
+		
+		
+		
 	}
 
 	private static void displayCommentWeekDay(WeekDay day) {

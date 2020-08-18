@@ -11,7 +11,7 @@ public class MovieTestAppl {
 				new Movie("d", 2018, 3.5f, 692000000.0),
 				new Movie("e", 2019, 5.5f, 82000000.0)
 		};
-		float rating = 4.0f;
+		float rating = 3.0f;
 		displayMovieByRating(movies, rating);  //метод распечатывает все фильмы классом выше rating
 
 	}

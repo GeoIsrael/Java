@@ -17,7 +17,7 @@ public class StringBuilderInt {
 //		sb = new StringBuilder(180);   //создает объект StringBuilder размерностью 180. следующее увеличение будет х2
 //		System.out.println(sb.capacity());
 		
-		System.out.println(sb.indexOf("4"));
+		System.out.println(sb.indexOf("mak"));
 		System.out.println(sb.deleteCharAt(11));
 
 

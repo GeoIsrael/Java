@@ -18,15 +18,16 @@ public class ImaggaClientAppl {
 		RestTemplate restTemplate = new RestTemplate();
 		String url = "https://api.imagga.com/v2/tags";
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "Basic YWNjX2MzY2Y2YWNhOTMwMGViMzo2MGQ4NTdhMmY3ODg0NGM4ZTMxNTM4MDYwYjhjZmFmMg==");
+		headers.add("Authorization", "Basic YWNjXzc4ZjA5OWY5ZmY5NzIxMjphYTY0YjcxMzgwMTE5NmVkYTkxNDRlZjk1ZDU2MGNkMw==");
 		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
 				.queryParam("image_url", "https://24smi.org/public/media/235x307/person/2017/12/22/4sqqykgn04bo-cheburashka.jpg")
-				.queryParam("language", "ru")
+				.queryParam("language", "en")
 				.queryParam("limit", 3);
 		RequestEntity<String> request = 
 				new RequestEntity<>(headers, HttpMethod.GET, builder.build().toUri());
 		ResponseEntity<ResponseDto> response = 
 				restTemplate.exchange(request, ResponseDto.class);
+		
 		displayTags(response.getBody().getResult().getTags());
 	}
 

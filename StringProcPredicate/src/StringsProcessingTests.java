@@ -74,7 +74,7 @@ public class StringsProcessingTests {
 		str.setPredicate(predicate);
 		int ind=0;
 		for(String string:str)
-		assertEquals(expected[ind++],string);
+			assertEquals(expected[ind++],string);
 		assertEquals(expected.length,ind);
 		
 	}
