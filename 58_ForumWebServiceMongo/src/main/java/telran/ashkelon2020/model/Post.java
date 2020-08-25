@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@Document(collection = "posts")
+@Document(collection = "forumposts")
 public class Post {
 	
 	Integer id;
