@@ -7,5 +7,13 @@ public interface AccountSecurity {
 	boolean checkExpDate(String login);
 	
 	boolean checkHaveRole(String login, String role);
+	
+	boolean isBanned(String login);
+	
+	String addUser(String sessionId, String login);
+	
+	String getUser(String sessionId);
+	
+	String removeUser(String sessionId);
 
 }

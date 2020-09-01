@@ -12,13 +12,13 @@ import telran.ashkelon2020.accounting.dao.UserAccountRepository;
 import telran.ashkelon2020.accounting.model.UserAccount;
 
 @SpringBootApplication
-public class ForumServiceApplication implements CommandLineRunner{
+public class ForumServiceFilterApplication implements CommandLineRunner{
 	
 	@Autowired
 	UserAccountRepository userAccountRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(ForumServiceApplication.class, args);
+		SpringApplication.run(ForumServiceFilterApplication.class, args);
 	}
 
 	@Override
@@ -36,6 +36,7 @@ public class ForumServiceApplication implements CommandLineRunner{
 			admin.setLastName("Administrator");
 			userAccountRepository.save(admin);
 		}
+		
 	}
 
 }

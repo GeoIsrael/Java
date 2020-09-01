@@ -1,5 +1,7 @@
 package telran.ashkelon2020.accounting.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +18,6 @@ import telran.ashkelon2020.accounting.dto.UserRegisterDto;
 import telran.ashkelon2020.accounting.dto.UserUpdateDto;
 import telran.ashkelon2020.accounting.service.UserAccountService;
 import telran.ashkelon2020.accounting.service.security.AccountSecurity;
-import telran.ashkelon2020.accounting.service.security.Authenticated;
 
 @RestController
 @RequestMapping("/account")
@@ -34,38 +35,33 @@ public class UserAccountController {
 	}
 
 	@PostMapping("/login")
-	public UserAccountResponseDto login(@RequestHeader("Authorization") String token, String user) {
-		return accountService.getUser(user);
+	public UserAccountResponseDto login(Principal principal) {
+		return accountService.getUser(principal.getName());
 	}
 
 	@PutMapping("/user/{login}")
-	public UserAccountResponseDto updateUser(@PathVariable String login,
-			 @RequestHeader("Authorization") String token, @RequestBody UserUpdateDto userUpdateDto) {
+	public UserAccountResponseDto updateUser(@PathVariable String login, @RequestBody UserUpdateDto userUpdateDto) {
 		return accountService.editUser(login, userUpdateDto);
 	}
 
 	@DeleteMapping("/user/{login}")
-	public UserAccountResponseDto removeUser(@PathVariable String login, @RequestHeader("Authorization") String token) {
+	public UserAccountResponseDto removeUser(@PathVariable String login) {
 		return accountService.removeUser(login);
 	}
 
-	@PutMapping("user/{login}/role/{role}")
-	public RolesResponseDto addRole(@PathVariable String login, @PathVariable String role, 
-			@RequestHeader("Authorization") String token) {
+	@PutMapping("/user/{login}/role/{role}")
+	public RolesResponseDto addRole(@PathVariable String login, @PathVariable String role) {
 		return accountService.changeRolesList(login, role, true);
 	}
 
-	@DeleteMapping("user/{login}/role/{role}")
-	public RolesResponseDto removeRole(@PathVariable String login, @PathVariable String role, 
-			@RequestHeader("Authorization") String token) {
+	@DeleteMapping("/user/{login}/role/{role}")
+	public RolesResponseDto removeRole(@PathVariable String login, @PathVariable String role) {
 		return accountService.changeRolesList(login, role, false);
 	}
 
 	@PutMapping("/user/password")
-	@Authenticated
-	public void changePassword(@RequestHeader("Authorization") String token,
-			@RequestHeader("X-Password") String newPassword, String user) {
-		accountService.changePassword(user, newPassword);
+	public void changePassword(@RequestHeader("X-Password") String newPassword, Principal principal) {
+		accountService.changePassword(principal.getName(), newPassword);
 	}
 
 

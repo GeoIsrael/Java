@@ -1,10 +1,10 @@
-package telran.ashkelon2020.forum;
+package telran.ashkelon2020;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ForumServiceApplicationTests {
+class ForumServiceFilterApplicationTests {
 
 	@Test
 	void contextLoads() {
