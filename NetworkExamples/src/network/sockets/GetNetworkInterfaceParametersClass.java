@@ -4,7 +4,7 @@ import java.net.*;
 import java.util.*;
 import static java.lang.System.out;
 
-public class GetSocketParameterClass {
+public class GetNetworkInterfaceParametersClass {
 
     public static void main(String args[]) throws SocketException {
         Enumeration<NetworkInterface> nets = NetworkInterface.getNetworkInterfaces();
