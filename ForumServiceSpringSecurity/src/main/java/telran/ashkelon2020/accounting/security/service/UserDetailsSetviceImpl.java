@@ -1,5 +1,7 @@
 package telran.ashkelon2020.accounting.security.service;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -20,11 +22,14 @@ public class UserDetailsSetviceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserAccount userAccount = accountRepository.findById(username)
-				.orElseThrow(() -> new UsernameNotFoundException(username));
-		String[] roles = userAccount.getRoles()
-				.stream()
-				.map(r -> "ROLE_" + r.toUpperCase())
-				.toArray(String[]::new);
+				.orElseThrow(() -> new UsernameNotFoundException(username));	
+		String[] roles = new String[0];
+		if (LocalDateTime.now().isBefore(userAccount.getExpDate())) {
+			roles = userAccount.getRoles()
+					.stream()
+					.map(r -> "ROLE_" + r.toUpperCase())
+					.toArray(String[]::new);	
+		}
 		return new User(username, userAccount.getPassword(),
 				AuthorityUtils.createAuthorityList(roles));
 	}

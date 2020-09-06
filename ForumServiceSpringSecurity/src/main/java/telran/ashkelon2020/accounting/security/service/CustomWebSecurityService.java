@@ -14,7 +14,7 @@ public class CustomWebSecurityService {
 
 	public boolean checkPostAuthority(String id, String user) {
 		Post post = postRepository.findById(id).orElse(null);
-		return post==null ? true : post.getAuthor().equals(user);
+		return post == null ? true : post.getAuthor().equals(user);
 	}
 
 }
