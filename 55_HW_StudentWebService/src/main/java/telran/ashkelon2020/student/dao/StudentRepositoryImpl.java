@@ -23,20 +23,23 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public Student deleteStudent(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return students.remove(id);
 	}
 
 	@Override
 	public Student updateStudent(int id, String name, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		// FIXME
+		Student student = students.get(id);
+		student.setName(name);
+		student.setPassword(password);
+		return student;
 	}
 
 	@Override
 	public boolean addScore(int id, String exam, int score) {
-		// TODO Auto-generated method stub
-		return false;
+		// FIXME
+		Student student = students.get(id);
+		return student.addScore(exam, score);
 	}
 
 }
