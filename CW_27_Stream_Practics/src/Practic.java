@@ -7,9 +7,9 @@ public class Practic {
 
 	public static void main(String[] args) {
 		List<Integer> list = Arrays.asList(10,-4,20,8,7,2,3);
-//		displayListWithIndexes(list);                       //распечатываем лист и индексами
+		displayListWithIndexes(list);                       //распечатываем лист и индексами
 //		displayCharOccurrances("aaaacfcffdgthththt");       //создаем мапу вхождений символов
-		displayEvenOddSums(list);                           //на вход list - на выходе сумма четных и сумма нечетных
+//		displayEvenOddSums(list);                           //на вход list - на выходе сумма четных и сумма нечетных
 
 	}
 

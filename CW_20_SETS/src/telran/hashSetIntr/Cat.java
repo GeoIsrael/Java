@@ -4,6 +4,7 @@ public class Cat {
 	private String name;
 	private  int age;
 	private char sex;
+	
 	public Cat(String name, int age, char sex) {
 		super();
 		this.name = name;
