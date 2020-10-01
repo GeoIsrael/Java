@@ -8,6 +8,12 @@ public class JavaFileAppl {
 
 	public static void main(String[] args) {
 		System.out.println(File.separator);
+		System.out.println("File.separator = " + File.separator);
+        System.out.println("File.separatorChar = " + File.separatorChar);
+        System.out.println("File.pathSeparator = " + File.pathSeparator);
+        System.out.println("File.pathSeparatorChar = " + File.pathSeparatorChar);
+        System.out.println("---------------");
+		
 		String path = File.separator + "home" + File.separator
 				+ "g" + File.separator + "jpg" + File.separator ;  //+ "20200528_162423.jpg"
 		File file = new File(path);
