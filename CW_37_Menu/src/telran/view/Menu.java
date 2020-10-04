@@ -4,7 +4,7 @@ public class Menu {
 	private InputOutput inputOutput;
 	protected Item[] items;
 
-	public Menu(InputOutput inputOutput, Item[] items) {
+	public Menu(InputOutput inputOutput, Item[] items) {    //class of menu with ON/OFF and List of Items
 		this.inputOutput = inputOutput;
 		this.items = items;
 	}

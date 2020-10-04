@@ -25,6 +25,7 @@ public class ServerAppl {
 			ObjectInputStream ois = new ObjectInputStream(inputStream);
 			while (true) {
 				String message = ois.readObject().toString();
+				System.out.println(message);
 				String response = message + " " + LocalTime.now();
 				oos.writeObject(response);
 				oos.flush();

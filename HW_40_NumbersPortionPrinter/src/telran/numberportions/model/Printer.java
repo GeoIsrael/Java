@@ -1,11 +1,12 @@
 package telran.numberportions.model;
 
 public class Printer implements Runnable {
-	static int totalNumbers;
-	static int portion;
-	static long sleepTime;
-	int number;
-	Thread next;
+	static int totalNumbers;        //вся порция 
+	static int portion;             //личная порция
+	static long sleepTime;          //время засыыпания
+	int number;                    	//номер 
+	Thread next;					//следующий поток
+	
 
 	public Printer(int number) {
 		this.number = number;
@@ -53,12 +54,12 @@ public class Printer implements Runnable {
 
 	@Override
 	public void run() {
-		int nPortions = totalNumbers / portion;
+		int nPortions = totalNumbers / portion;     //моя порция это общая порция поделенная на порцию
 		for (int i = 0; i < nPortions;) {
 			try {
-				Thread.sleep(sleepTime);
+				Thread.sleep(sleepTime);            //заснулли на указанное время 
 			} catch (InterruptedException e) {
-				printPortion(portion);
+				printPortion(portion);        //распечатали порцию
 				next.interrupt();
 				i++;
 			}

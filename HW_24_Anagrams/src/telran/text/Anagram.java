@@ -1,6 +1,7 @@
 package telran.text;
 import java.util.*;
 public class Anagram {
+	
 public static boolean isAnagram(String word,String anagram) {
 	if(anagram.isEmpty()||anagram.length()>word.length())       //проверка если анаграмма пустая или не проходится проверка по длине
 		return false;

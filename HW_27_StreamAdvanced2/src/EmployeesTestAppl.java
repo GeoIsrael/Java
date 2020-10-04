@@ -14,8 +14,8 @@ public class EmployeesTestAppl {
 //		displayCompaniesAboveAvgSalary(employees);             //отображает только компании с средней зарплатой по компании больше чем средняя зарплата глобальная
 //		displayShuffledArray(new int[] {1,2,3,4,5,6,7});
 //		displayShuffledArray2(new int[] {1,2,3,4,5,6,7});
-		displayEmployeesBySalaryIntervals(employees, 1000);    //показать всех эмплоев по зарплате в нужном интервале
-//		displayDigitsStatistics();                           //распаковка и подсчет миллион символов                        
+//		displayEmployeesBySalaryIntervals(employees, 1000);    //показать всех эмплоев по зарплате в нужном интервале
+		displayDigitsStatistics();                           //распаковка и подсчет миллион символов                        
 	}
 	
 	

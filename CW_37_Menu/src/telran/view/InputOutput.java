@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public interface InputOutput {
+public interface InputOutput {  //Элемент меню
 
 	String getString(String prompt);
 
