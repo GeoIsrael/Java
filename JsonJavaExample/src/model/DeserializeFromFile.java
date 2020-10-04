@@ -6,7 +6,8 @@ public class DeserializeFromFile {
 
    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-       FileInputStream fileInputStream = new FileInputStream("/home/g/eclipse-workspace/JsonJavaExample/src/save.ser");
+	   														///home/g/git/Java/JsonJavaExample/src/save.ser
+       FileInputStream fileInputStream = new FileInputStream("/home/g/git/Java/JsonJavaExample/src/save.ser");
        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
        SavedGame savedGame = (SavedGame) objectInputStream.readObject();

@@ -16,7 +16,7 @@ public class SerializeToFile {
        SavedGame savedGame = new SavedGame(territoryInfo, resourcesInfo, diplomacyInfo);
 
        //создаем 2 потока для сериализации объекта и сохранения его в файл
-       FileOutputStream outputStream = new FileOutputStream("");
+       FileOutputStream outputStream = new FileOutputStream("/home/g/git/Java/JsonJavaExample/src/save1.ser");
        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
        // сохраняем игру в файл
